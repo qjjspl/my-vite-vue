@@ -10,7 +10,7 @@ import router from './router/index'
 const app = createApp(App);
 app.use(ElementPlus).use(router).mount('#app')
 
-// //全局注册图标组件
-// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-//     app.component(key, component)
-// }
+//全局注册图标组件
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}

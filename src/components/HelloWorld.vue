@@ -9,8 +9,8 @@ const count = ref(0)
 <template>
   <h1>{{ msg }}</h1>
 66666666666666
-  <el-button type="primary">按钮1</el-button>
-  <el-button type="success">按钮2</el-button>
+  <!-- <el-button type="primary">按钮1</el-button>
+  <el-button type="success">按钮2</el-button> -->
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
