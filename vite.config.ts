@@ -6,7 +6,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [vue()],
   server: {
-  host: '0.0.0.0', //解决“vite use `--host` to expose”
+  host: '0.0.0.0', //解决"vite use `--host` to expose"
   port: 8089,
   hmr: true,
   open: true

@@ -1,43 +1,28 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-66666666666666
-  <!-- <el-button type="primary">按钮1</el-button>
-  <el-button type="success">按钮2</el-button> -->
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
+  <el-button type="primary" size="default" @click="addbtn">新增</el-button>
+  
+  <div>   
+    <h1>Hello World</h1>
+{{ count }}
 
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  </div> 
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<script setup lang="ts">
+import {testStore} from '@/store/test/index'
+import { computed } from 'vue';
+//获取store
+const store = testStore()
+//count展示到页面
+const count = computed(()=>{
+  return store.getCount;
+})
+//点击按钮改变count的值
+const addbtn = () => {
+  store.setCount(store.getCount + 1);
 }
+</script>
+
+<style scoped>
+
 </style>
