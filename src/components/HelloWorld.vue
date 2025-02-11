@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import {testStore} from '@/store/test/index'
+import {testStore} from '@/store/test/index.ts'
 import { computed } from 'vue';
 //获取store
 const store = testStore()
