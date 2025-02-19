@@ -7,15 +7,28 @@
     @open="handleOpen"
     @close="handleClose"
       background-color="#304156"
+      unique-opened
+      router
   >
       <menu-item :menuList="menuList"></menu-item>
     </el-menu>
   </template>
   <script setup lang="ts">
-  import {ref,reactive } from "vue";
+  import {reactive,computed } from "vue";
+  import {useRoute} from "vue-router";
   import MenuLogo from "@/layout/menu/MenuLogo.vue";
   import MenuItem from "@/layout/menu/MenuItem.vue";
-  const isCollapse = ref(false);
+  import {useMenuStore} from "@/store/menu";
+  const menuStore = useMenuStore();
+  const isCollapse = computed(()=>menuStore.getCollapse);
+  const route=useRoute();
+  //获取激活的菜单
+  const defaultActive = computed(()=>{
+    const {path} = route;
+    return path;
+})
+  
+  
   const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }

@@ -1,13 +1,30 @@
 <template>
     <div class="logo">
         <img src="@/assets/MenuLogo.png" alt="logo">
-        <span>{{title}}</span>
+        <span v-if="show" class="logo-title">{{title}}</span>
     </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue"
+import {ref,watch} from "vue"
+import {useMenuStore} from "@/store/menu";
+const menuStore = useMenuStore();
 const title = ref("XX管理系统")
+// const show = computed(()=>{return menuStore.getCollapse});
+//解决伸缩僵硬问题：延时
+const show = ref(true);
+watch(
+()=>menuStore.getCollapse,
+(collapse:boolean)=>{
+  if(!collapse){
+     setTimeout(()=>{
+        show.value = !collapse;
+    },300)
+  }else{
+    show.value =!collapse;
+  }
+}
+)
 </script>
 
 <style scoped lang="scss">
