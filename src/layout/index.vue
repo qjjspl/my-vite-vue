@@ -8,7 +8,9 @@
           <Header></Header>
         </el-header>
         <el-main class="main">
+          <Tabs></Tabs>
           <router-view></router-view>
+          
         </el-main>
       </el-container>
     </el-container>
@@ -16,6 +18,7 @@
   <script setup lang="ts">
   import Header from "@/layout/header/Header.vue"
   import MenuBar from "@/layout/menu/MenuBar.vue"
+  import Tabs from "@/layout/tabs/Tabs.vue";
   </script>
   <style lang="scss">
   .layout {
