@@ -13,7 +13,8 @@ export type TabsState = {
 }
 
 // 定义并导出选项卡状态管理store
-export const useTabsStore = defineStore('tabStore', {
+export const useTabsStore = defineStore('tabStore', 
+  {
 
  
   // 定义状态初始值
@@ -39,7 +40,13 @@ export const useTabsStore = defineStore('tabStore', {
     addTab(tab: Tab) {
          const hasTab = this.tabs.some(t => t.path === tab.path)
          if(!hasTab){
+          if(tab.path=='/dashboard'){
+              //如果是首页就加到第一个
+              this.tabs.unshift(tab)
+          }else{
             this.tabs.push(tab)
+          }
+            
          }
     },
 

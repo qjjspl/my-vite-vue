@@ -3,6 +3,7 @@
     v-model="activeTab"
     type="card"
     editable
+    closable
     class="demo-tabs"
     @tab-remove="removeTab"
     @tab-click="clickTab"
